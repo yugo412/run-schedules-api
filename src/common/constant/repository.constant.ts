@@ -1,0 +1,6 @@
+export const DATA_SOURCE = 'DATA_SOURCE';
+
+export const REPOSITORY = {
+  SCHEDULE: Symbol('SCHEDULE_REPOSITORY'),
+  MEDIA: Symbol('MEDIA_REPOSITORY'),
+};
