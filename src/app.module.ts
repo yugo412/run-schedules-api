@@ -1,10 +1,18 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { ScheduleModule } from './schedule/schedule.module';
+import { ConfigModule } from '@nestjs/config';
+import { MediaModule } from './media/media.module';
+import appConfig from './app.config';
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [
+    ConfigModule.forRoot({
+      isGlobal: true,
+      envFilePath: '.env',
+      load: [appConfig],
+    }),
+    ScheduleModule,
+    MediaModule,
+  ],
 })
 export class AppModule {}
